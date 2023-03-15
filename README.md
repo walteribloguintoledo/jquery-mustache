@@ -17,17 +17,17 @@ As with all jQuery plugins, just ensure that you load jQuery before you load jQu
 ## Usage
 Lets get down to it and load an external template and then render it.
 
-Option# 1:
     var viewData = { name: 'Jonny' };
     $.Mustache.load('./templates/greetings.html').done(function () {
-        	$('body').mustache('simple-hello', viewData);
+		$('body').mustache('simple-hello', viewData);
     });
-	
-Option# 2:
+
+You may also use this code to avoid multiple rendering.
+
     var templateData = { name: 'Jonny' };
     $.Mustache.options.warnOnMissingTemplates = true;
     $.Mustache.load('./templates/greetings.html').done(function() {
-    		$('body').html('').append($.Mustache.render('simple-hello', templateData));
+    	$('body').html('').append($.Mustache.render('simple-hello', templateData));
     });
 
 In the above example we are loading an external template HTML file (`greetings.htm`) and, once it's finished loading we render it out replacing the contents of the `body` element.  Your templates should be defined in a script block in the external HTML file where the script block's id will define the template's name, eg:
